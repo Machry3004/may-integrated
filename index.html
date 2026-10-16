@@ -1,296 +1,939 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>May Integrated Services LLP | Brand Distribution Portfolio</title>
-  <!-- Tailwind CSS via CDN (No build step required for GitHub Pages) -->
+  <title>May Integrated Services LLP | Global E-Commerce & Brand Distribution Portfolio</title>
+  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Inter Font for clean corporate typography -->
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit for Executive Corporate Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              950: '#060A12',
+              900: '#0B1120',
+              800: '#111C33',
+              700: '#1E293B',
+            },
+            gold: {
+              400: '#E5C158',
+              500: '#D4AF37',
+              600: '#B59024',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #F8F8F6; /* Warm minimal neutral */
-      color: #18181B; /* Deep zinc charcoal */
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F1F5F9;
+      color: #0F172A;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Print-specific rules so clicking "Save as PDF" looks like a custom brochure */
+    h1,
+    h2,
+    h3,
+    .font-display {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Architectural subtle grid pattern for dark executive sections */
+    .bg-grid-pattern {
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .bg-dot-pattern {
+      background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 50%, #F59E0B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card-hover {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.08), 0 8px 15px -6px rgba(15, 23, 42, 0.04);
+    }
+
+    /* Print-specific rules to preserve corporate brochure styling in PDF */
     @media print {
-      body {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
+
       .no-print {
         display: none !important;
       }
+
       .print-break-inside-avoid {
         break-inside: avoid;
       }
-      .card-surface {
-        box-shadow: none !important;
-        border: 1px solid #E4E4E7 !important;
-      }
+
       @page {
-        margin: 12mm;
+        margin: 8mm;
       }
     }
   </style>
 </head>
-<body class="selection:bg-zinc-900 selection:text-white">
 
-  <!-- Top Utility Bar -->
-  <header class="sticky top-0 z-50 bg-[#F8F8F6]/90 backdrop-blur-md border-b border-zinc-200/80 no-print">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="flex items-center space-x-2.5">
-        <span class="h-2.5 w-2.5 rounded-full bg-zinc-900"></span>
-        <span class="text-xs font-semibold tracking-widest uppercase text-zinc-700">May Integrated Services LLP</span>
-      </div>
+<body class="selection:bg-amber-500 selection:text-slate-950 bg-slate-100">
+
+  <!-- Top Executive Navigation Bar -->
+  <header class="sticky top-0 z-50 bg-[#060A12]/95 backdrop-blur-xl border-b border-white/10 text-white no-print">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Brand Crest & Identity -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div
+          class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-300 via-amber-500 to-amber-700 p-[1px] shadow-lg shadow-amber-500/20">
+          <div class="w-full h-full bg-[#060A12] rounded-[11px] flex items-center justify-center">
+            <span class="font-display font-bold text-lg tracking-wider gold-gradient-text">M</span>
+          </div>
+        </div>
+        <div>
+          <span class="font-display text-sm md:text-base font-bold tracking-wide text-white block leading-none">MAY
+            INTEGRATED</span>
+          <span class="text-[11px] font-medium tracking-[0.2em] uppercase text-amber-400/90 block mt-1">Services
+            LLP</span>
+        </div>
+      </a>
+
+      <!-- Quick Section Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-slate-300">
+        <a href="#pillars" class="hover:text-amber-400 transition">Strategy</a>
+        <a href="#storefronts" class="hover:text-amber-400 transition">Storefronts</a>
+        <a href="#network" class="hover:text-amber-400 transition">Global Hubs</a>
+        <a href="#portfolio" class="hover:text-amber-400 transition">Brand Portfolio</a>
+        <a href="#capabilities" class="hover:text-amber-400 transition">Capabilities</a>
+      </nav>
+
+      <!-- Action Buttons -->
       <div class="flex items-center gap-3">
-        <a href="mailto:info@mayecomm.com" class="text-xs font-medium text-zinc-600 hover:text-zinc-900 px-3 py-2 transition">
+        <a href="mailto:info@mayecomm.com"
+          class="hidden sm:inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white px-3.5 py-2 rounded-lg border border-white/10 hover:border-white/25 transition">
+          <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+            </path>
+          </svg>
           info@mayecomm.com
         </a>
-        <button onclick="window.print()" class="inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-medium px-4 py-2 rounded-md transition shadow-sm">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        <button onclick="window.print()"
+          class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 text-xs font-bold px-4 py-2.5 rounded-lg transition shadow-lg shadow-amber-500/20">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+            </path>
           </svg>
-          Save as PDF
+          Download Brochure PDF
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Main Portfolio Container -->
-  <main class="max-w-5xl mx-auto px-6 py-12 md:py-16 space-y-12">
+  <!-- 1. EXECUTIVE HERO SECTION -->
+  <section class="relative bg-[#060A12] text-white overflow-hidden border-b border-slate-800">
+    <!-- Ambient Lighting & Grid Overlay -->
+    <div class="absolute inset-0 bg-grid-pattern opacity-80"></div>
+    <div
+      class="absolute -top-40 -right-40 w-[550px] h-[550px] bg-amber-500/15 rounded-full blur-[130px] pointer-events-none">
+    </div>
+    <div
+      class="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[130px] pointer-events-none">
+    </div>
 
-    <!-- 1. Hero / Corporate Identity -->
-    <section class="border-b border-zinc-200 pb-10">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-200/70 text-zinc-700 text-xs font-medium mb-6">
-        <span>Corporate Brand Distribution Portfolio</span>
-        <span class="text-zinc-400">•</span>
-        <span>6+ Years E-Commerce Excellence</span>
-      </div>
-      
-      <h1 class="text-3xl md:text-5xl font-semibold tracking-tight text-zinc-900 leading-tight">
-        May Integrated Services LLP
-      </h1>
-      
-      <p class="mt-5 text-base md:text-lg text-zinc-600 max-w-3xl leading-relaxed font-normal">
-        Founded with a vision to redefine global e-commerce management and cross-border trade, combining over 6 years of deep marketplace experience with modern technology and operational precision.
-      </p>
+    <div class="relative max-w-7xl mx-auto px-6 pt-16 pb-20 lg:pt-24 lg:pb-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-      <!-- Key Metadata Strip -->
-      <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-zinc-200/70">
-        <div>
-          <p class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400">Legal Entity</p>
-          <p class="mt-1 text-sm font-medium text-zinc-900">May Integrated Services LLP</p>
-        </div>
-        <div>
-          <p class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400">Primary Marketplaces</p>
-          <p class="mt-1 text-sm font-medium text-zinc-900">Amazon & Flipkart</p>
-        </div>
-        <div>
-          <p class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400">Operating Tenure</p>
-          <p class="mt-1 text-sm font-medium text-zinc-900">6+ Years Active Scale</p>
-        </div>
-        <div>
-          <p class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400">Global Footprint</p>
-          <p class="mt-1 text-sm font-medium text-zinc-900">5 International Hubs</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2. Vision, Mission & Values -->
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-5 print-break-inside-avoid">
-      <div class="card-surface bg-white p-6 rounded-xl border border-zinc-200/80 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
-        <p class="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">01 / Our Corporate Vision</p>
-        <h2 class="text-base font-semibold text-zinc-900 mb-2">Global Marketplace Bridge</h2>
-        <p class="text-sm text-zinc-600 leading-relaxed">
-          To be the world’s most trusted multi-marketplace e-commerce enterprise, bridging global manufacturers with consumers across North America, Europe, Asia, and the Middle East through seamless technology and logistics.
-        </p>
-      </div>
-
-      <div class="card-surface bg-white p-6 rounded-xl border border-zinc-200/80 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
-        <p class="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">02 / Our Strategic Mission</p>
-        <h2 class="text-base font-semibold text-zinc-900 mb-2">Data & AI Channel Scale</h2>
-        <p class="text-sm text-zinc-600 leading-relaxed">
-          To build, scale, and optimize high-performing brand channels across Amazon, Flipkart, and international dropshipping platforms using data analytics, AI listing optimization, and exceptional customer service.
-        </p>
-      </div>
-
-      <div class="card-surface bg-white p-6 rounded-xl border border-zinc-200/80 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
-        <p class="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2">03 / Core Values & Culture</p>
-        <h2 class="text-base font-semibold text-zinc-900 mb-2">Precision & Compliance</h2>
-        <p class="text-sm text-zinc-600 leading-relaxed">
-          Operational speed, 100% regulatory compliance, customer-centric care, and continuous innovation through modern technology and technical workflow automation.
-        </p>
-      </div>
-    </section>
-
-    <!-- 3. Active Storefronts & Global Network -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 print-break-inside-avoid">
-      
-      <!-- Storefronts -->
-      <div class="card-surface bg-white p-7 rounded-xl border border-zinc-200/80">
-        <div class="flex items-center justify-between mb-4">
-          <h3 class="text-sm font-semibold uppercase tracking-wider text-zinc-900">Active Marketplace Storefronts</h3>
-          <span class="text-xs text-zinc-500 font-medium">Amazon • Flipkart</span>
-        </div>
-        <p class="text-xs text-zinc-500 mb-5">
-          Strategic multi-storefront infrastructure enabling dedicated category positioning and reliable Buy Box execution.
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div class="p-3.5 rounded-lg bg-[#F8F8F6] border border-zinc-200/70">
-            <p class="text-sm font-semibold text-zinc-900">Venus Enterprises</p>
-            <p class="text-xs text-zinc-500 mt-0.5">Verified Retail Storefront</p>
+        <!-- Left Column: Core Executive Pitch -->
+        <div class="lg:col-span-7 space-y-6">
+          <div
+            class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-xs font-semibold tracking-wider uppercase text-amber-300">Authorized Brand Distribution
+              Portfolio</span>
+            <span class="text-slate-600">•</span>
+            <span class="text-xs font-medium text-slate-300">Est. 6+ Years</span>
           </div>
-          <div class="p-3.5 rounded-lg bg-[#F8F8F6] border border-zinc-200/70">
-            <p class="text-sm font-semibold text-zinc-900">Ideal Cosmo</p>
-            <p class="text-xs text-zinc-500 mt-0.5">Beauty & Personal Care</p>
-          </div>
-          <div class="p-3.5 rounded-lg bg-[#F8F8F6] border border-zinc-200/70">
-            <p class="text-sm font-semibold text-zinc-900">Style Studio</p>
-            <p class="text-xs text-zinc-500 mt-0.5">Lifestyle & Grooming</p>
-          </div>
-          <div class="p-3.5 rounded-lg bg-[#F8F8F6] border border-zinc-200/70">
-            <p class="text-sm font-semibold text-zinc-900">May Global Ventures</p>
-            <p class="text-xs text-zinc-500 mt-0.5">Cross-Border & Global Trade</p>
-          </div>
-        </div>
-      </div>
 
-      <!-- Global Network -->
-      <div class="card-surface bg-white p-7 rounded-xl border border-zinc-200/80 flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-sm font-semibold uppercase tracking-wider text-zinc-900">Global Commercial Network</h3>
-            <span class="text-xs text-zinc-500 font-medium">Cross-Border Reach</span>
-          </div>
-          <p class="text-xs text-zinc-500 mb-6">
-            Connecting global suppliers and manufacturers with high-demand consumer markets across five major international commercial nodes.
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+            Scaling Global Brands Across <span class="gold-gradient-text">Premier Marketplaces.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed font-normal">
+            <strong class="text-white font-semibold">May Integrated Services LLP</strong> was founded with a vision to
+            redefine global e-commerce management and cross-border trade—combining over 6 years of deep marketplace
+            execution across <span class="text-white font-medium">Amazon</span> and <span
+              class="text-white font-medium">Flipkart</span> with AI-driven catalog optimization, strict price
+            integrity, and end-to-end logistics precision.
           </p>
-          <div class="flex flex-wrap gap-2.5">
-            <span class="px-3.5 py-2 rounded-lg bg-[#F8F8F6] border border-zinc-200/80 text-xs font-medium text-zinc-800">London, UK</span>
-            <span class="px-3.5 py-2 rounded-lg bg-[#F8F8F6] border border-zinc-200/80 text-xs font-medium text-zinc-800">New York, USA</span>
-            <span class="px-3.5 py-2 rounded-lg bg-[#F8F8F6] border border-zinc-200/80 text-xs font-medium text-zinc-800">Dubai, UAE</span>
-            <span class="px-3.5 py-2 rounded-lg bg-[#F8F8F6] border border-zinc-200/80 text-xs font-medium text-zinc-800">Sydney, AUS</span>
-            <span class="px-3.5 py-2 rounded-lg bg-[#F8F8F6] border border-zinc-200/80 text-xs font-medium text-zinc-800">Tokyo, JPN</span>
+
+          <!-- Primary CTA Row -->
+          <div class="pt-3 flex flex-wrap items-center gap-4 no-print">
+            <a href="#contact"
+              class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-bold text-sm shadow-xl shadow-amber-500/20 hover:brightness-110 transition">
+              Partner With Our Procurement Desk
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
+            <a href="#portfolio"
+              class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/10 font-semibold text-sm transition">
+              View Brand Track Record
+            </a>
           </div>
         </div>
 
-        <div class="mt-6 pt-5 border-t border-zinc-100 flex items-center justify-between text-xs text-zinc-500">
-          <span>100% Regulatory & MAP Compliant</span>
-          <span class="font-medium text-zinc-800">End-to-End Logistics</span>
-        </div>
-      </div>
+        <!-- Right Column: Corporate Dossier Card -->
+        <div class="lg:col-span-5">
+          <div
+            class="bg-gradient-to-b from-slate-900/90 to-[#0B1120]/90 border border-white/15 rounded-2xl p-7 shadow-2xl backdrop-blur-xl relative overflow-hidden">
+            <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-amber-400 via-amber-500 to-blue-500"></div>
 
-    </section>
-
-    <!-- 4. Brand Portfolio Track Record -->
-    <section class="space-y-6 print-break-inside-avoid">
-      <div>
-        <h2 class="text-lg font-semibold text-zinc-900">Brand Portfolio & Track Record</h2>
-        <p class="text-xs text-zinc-500 mt-1">Proven capability across established global FMCG leaders and high-growth emerging beauty brands.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        <!-- Existing Heritage Brands -->
-        <div class="card-surface bg-white p-7 rounded-xl border border-zinc-200/80">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Tier-1 Distribution</span>
-            <span class="text-[11px] font-medium px-2.5 py-0.5 rounded bg-zinc-100 text-zinc-700">High-Velocity Catalog</span>
-          </div>
-          <h3 class="text-base font-semibold text-zinc-900 mb-4">Established Global Brands</h3>
-          <p class="text-xs text-zinc-500 mb-5 leading-relaxed">
-            Consistent inventory availability, authentic batch tracking, and strict price integrity for household personal care leaders.
-          </p>
-          <div class="grid grid-cols-2 gap-3">
-            <div class="py-3 px-4 rounded-lg border border-zinc-200/80 bg-[#F8F8F6] text-sm font-semibold text-zinc-800">
-              Vaseline
-            </div>
-            <div class="py-3 px-4 rounded-lg border border-zinc-200/80 bg-[#F8F8F6] text-sm font-semibold text-zinc-800">
-              L'Oréal
-            </div>
-            <div class="py-3 px-4 rounded-lg border border-zinc-200/80 bg-[#F8F8F6] text-sm font-semibold text-zinc-800">
-              Dove
-            </div>
-            <div class="py-3 px-4 rounded-lg border border-zinc-200/80 bg-[#F8F8F6] text-sm font-semibold text-zinc-800">
-              Old Spice
-            </div>
-          </div>
-        </div>
-
-        <!-- Zero to Hero Incubation -->
-        <div class="card-surface bg-white p-7 rounded-xl border border-zinc-200/80 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Zero-to-Hero Scale</span>
-              <span class="text-[11px] font-medium px-2.5 py-0.5 rounded bg-zinc-900 text-white">Market Expansion</span>
-            </div>
-            <h3 class="text-base font-semibold text-zinc-900 mb-4">New Brand Incubation & Launch</h3>
-            <p class="text-xs text-zinc-500 mb-5 leading-relaxed">
-              Full-funnel brand scaling from initial marketplace entry to category dominance using AI keyword indexing, review velocity, and targeted PPC management.
-            </p>
-            
-            <!-- Featured Case Study Card -->
-            <div class="p-4 rounded-lg border border-zinc-200 bg-[#F8F8F6]">
-              <div class="flex items-center justify-between">
-                <span class="text-base font-semibold text-zinc-900">Anua</span>
-                <span class="text-[11px] font-medium text-zinc-600 bg-white px-2.5 py-1 rounded border border-zinc-200">Featured Growth Partner</span>
+            <div class="flex items-center justify-between pb-5 mb-6 border-b border-white/10">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-widest text-amber-400">Corporate Profile</p>
+                <h2 class="text-xl font-bold text-white mt-0.5">Executive Summary</h2>
               </div>
-              <p class="text-xs text-zinc-600 mt-2 leading-relaxed">
-                Scaled from initial catalog onboarding to high-velocity skincare category performance through algorithmic listing optimization and seamless fulfillment.
-              </p>
+              <span
+                class="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-semibold">
+                Verified LLP Entity
+              </span>
+            </div>
+
+            <div class="space-y-4 text-sm">
+              <div class="flex items-center justify-between py-2.5 border-b border-white/5">
+                <span class="text-slate-400">Legal Entity Name</span>
+                <span class="font-semibold text-white">May Integrated Services LLP</span>
+              </div>
+              <div class="flex items-center justify-between py-2.5 border-b border-white/5">
+                <span class="text-slate-400">Operating Tenure</span>
+                <span class="font-semibold text-amber-300">6+ Years Active Scale</span>
+              </div>
+              <div class="flex items-center justify-between py-2.5 border-b border-white/5">
+                <span class="text-slate-400">Primary Marketplaces</span>
+                <span class="font-semibold text-white">Amazon &amp; Flipkart</span>
+              </div>
+              <div class="flex items-center justify-between py-2.5 border-b border-white/5">
+                <span class="text-slate-400">Active Retail Storefronts</span>
+                <span class="font-semibold text-white">4 Specialized Entities</span>
+              </div>
+              <div class="flex items-center justify-between py-2.5 border-b border-white/5">
+                <span class="text-slate-400">Global Commercial Hubs</span>
+                <span class="font-semibold text-white">UK • USA • UAE • AUS • JPN</span>
+              </div>
+              <div class="flex items-center justify-between pt-2">
+                <span class="text-slate-400">Compliance Standard</span>
+                <span class="font-semibold text-emerald-400">100% MAP &amp; Regulatory</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Key Metrics Bar -->
+      <div class="mt-14 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-white/[0.03] border border-white/10 rounded-xl p-5">
+          <p class="font-display text-3xl md:text-4xl font-bold gold-gradient-text">6+ Years</p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-300 mt-1">Marketplace Excellence</p>
+          <p class="text-xs text-slate-400 mt-0.5">Proven multi-category growth</p>
+        </div>
+        <div class="bg-white/[0.03] border border-white/10 rounded-xl p-5">
+          <p class="font-display text-3xl md:text-4xl font-bold text-white">4 Storefronts</p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-300 mt-1">Dedicated Retail Nodes</p>
+          <p class="text-xs text-slate-400 mt-0.5">Amazon &amp; Flipkart ecosystems</p>
+        </div>
+        <div class="bg-white/[0.03] border border-white/10 rounded-xl p-5">
+          <p class="font-display text-3xl md:text-4xl font-bold text-white">5 Global Hubs</p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-300 mt-1">Cross-Border Reach</p>
+          <p class="text-xs text-slate-400 mt-0.5">London, NY, Dubai, Sydney, Tokyo</p>
+        </div>
+        <div class="bg-white/[0.03] border border-white/10 rounded-xl p-5">
+          <p class="font-display text-3xl md:text-4xl font-bold text-emerald-400">100%</p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-300 mt-1">Brand &amp; MAP Integrity</p>
+          <p class="text-xs text-slate-400 mt-0.5">Authorized supply chain control</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN PORTFOLIO BODY -->
+  <main class="max-w-7xl mx-auto px-6 py-16 space-y-20 bg-dot-pattern">
+
+    <!-- 2. CORPORATE VISION, MISSION & CORE VALUES -->
+    <section id="pillars" class="print-break-inside-avoid">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-600 block">Corporate Foundation</span>
+          <h2 class="font-display text-2xl md:text-3xl font-bold text-slate-900 mt-1">Strategic Vision, Mission &amp;
+            Core Values</h2>
+        </div>
+        <p class="text-sm text-slate-600 max-w-md">
+          Built on institutional governance, algorithmic merchandising, and long-term brand equity stewardship.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Vision Card -->
+        <div class="card-hover bg-white rounded-2xl p-8 border border-slate-200/90 shadow-sm relative overflow-hidden">
+          <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center mb-6 shadow-md">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+              </path>
+            </svg>
+          </div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-600">01 / Corporate Vision</span>
+            <span class="text-xs font-semibold text-slate-400">Global Bridge</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-900 mb-3">World-Class Multi-Marketplace Enterprise</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            To be the world’s most trusted multi-marketplace e-commerce enterprise, bridging global manufacturers with
+            consumers across North America, Europe, Asia, and the Middle East through seamless technology and logistics.
+          </p>
+        </div>
+
+        <!-- Mission Card -->
+        <div class="card-hover bg-white rounded-2xl p-8 border border-slate-200/90 shadow-sm relative overflow-hidden">
+          <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center mb-6 shadow-md">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+            </svg>
+          </div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-600">02 / Strategic Mission</span>
+            <span class="text-xs font-semibold text-slate-400">AI &amp; Analytics</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-900 mb-3">High-Performing Brand Channels</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            To build, scale, and optimize high-performing brand channels across Amazon, Flipkart, and international
+            dropshipping platforms using data analytics, AI listing optimization, and exceptional customer service.
+          </p>
+        </div>
+
+        <!-- Values Card -->
+        <div class="card-hover bg-white rounded-2xl p-8 border border-slate-200/90 shadow-sm relative overflow-hidden">
+          <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center mb-6 shadow-md">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+              </path>
+            </svg>
+          </div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-600">03 / Culture &amp; Values</span>
+            <span class="text-xs font-semibold text-slate-400">Zero Compromise</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-900 mb-3">Speed, Compliance &amp; Automation</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Driven by operational speed, 100% regulatory compliance, customer-centric care, and continuous innovation
+            through modern technology and technical workflow automation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ACTIVE MARKETPLACE STOREFRONTS & GLOBAL NETWORK -->
+    <section id="storefronts" class="grid grid-cols-1 lg:grid-cols-12 gap-8 print-break-inside-avoid">
+
+      <!-- Left 7 Cols: Active Storefronts -->
+      <div
+        class="lg:col-span-7 bg-white rounded-2xl p-8 md:p-10 border border-slate-200/90 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-600">Retail Infrastructure</span>
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 rounded-full bg-slate-900 text-white text-xs font-semibold">Amazon</span>
+              <span class="px-3 py-1 rounded-full bg-blue-600 text-white text-xs font-semibold">Flipkart</span>
+            </div>
+          </div>
+          <h2 class="font-display text-2xl font-bold text-slate-900">Active Marketplace Storefronts</h2>
+          <p class="text-sm text-slate-600 mt-2 mb-8">
+            Our multi-storefront architecture enables category-specific positioning, dedicated inventory allocation, and
+            consistent Buy Box leadership across India and international marketplaces.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Storefront 1 -->
+            <div class="card-hover p-5 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-4">
+              <div
+                class="w-11 h-11 rounded-lg bg-slate-900 text-amber-400 font-display font-bold text-sm flex items-center justify-center shrink-0">
+                VE
+              </div>
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <h3 class="font-display font-bold text-slate-900 text-base">Venus Enterprises</h3>
+                  <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <p class="text-xs font-medium text-slate-500 mt-0.5">Flagship Multi-Category Retail</p>
+                <span
+                  class="inline-block mt-2.5 text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md">
+                  Verified Tier-1 Seller
+                </span>
+              </div>
+            </div>
+
+            <!-- Storefront 2 -->
+            <div class="card-hover p-5 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-4">
+              <div
+                class="w-11 h-11 rounded-lg bg-slate-900 text-amber-400 font-display font-bold text-sm flex items-center justify-center shrink-0">
+                IC
+              </div>
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <h3 class="font-display font-bold text-slate-900 text-base">Ideal Cosmo</h3>
+                  <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <p class="text-xs font-medium text-slate-500 mt-0.5">Beauty, Skincare &amp; Personal Care</p>
+                <span
+                  class="inline-block mt-2.5 text-[11px] font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-md">
+                  Cosmetics Specialist
+                </span>
+              </div>
+            </div>
+
+            <!-- Storefront 3 -->
+            <div class="card-hover p-5 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-4">
+              <div
+                class="w-11 h-11 rounded-lg bg-slate-900 text-amber-400 font-display font-bold text-sm flex items-center justify-center shrink-0">
+                SS
+              </div>
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <h3 class="font-display font-bold text-slate-900 text-base">Style Studio</h3>
+                  <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <p class="text-xs font-medium text-slate-500 mt-0.5">Lifestyle, Grooming &amp; Essentials</p>
+                <span
+                  class="inline-block mt-2.5 text-[11px] font-semibold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-md">
+                  High-Velocity Assortment
+                </span>
+              </div>
+            </div>
+
+            <!-- Storefront 4 -->
+            <div class="card-hover p-5 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-4">
+              <div
+                class="w-11 h-11 rounded-lg bg-slate-900 text-amber-400 font-display font-bold text-sm flex items-center justify-center shrink-0">
+                MG
+              </div>
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <h3 class="font-display font-bold text-slate-900 text-base">May Global Ventures</h3>
+                  <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <p class="text-xs font-medium text-slate-500 mt-0.5">Cross-Border &amp; Global Imports</p>
+                <span
+                  class="inline-block mt-2.5 text-[11px] font-semibold text-purple-700 bg-purple-50 border border-purple-200 px-2.5 py-0.5 rounded-md">
+                  International Trade Arm
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-8 pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+          <span>Prime &amp; F-Assured Fulfillment Ready</span>
+          <span class="font-semibold text-slate-800">99.4%+ Positive Seller Rating Standard</span>
+        </div>
+      </div>
+
+      <!-- Right 5 Cols: Global Commercial Network -->
+      <div id="network"
+        class="lg:col-span-5 bg-[#0B1120] text-white rounded-2xl p-8 md:p-10 border border-slate-800 shadow-xl relative overflow-hidden flex flex-col justify-between">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none"></div>
+
+        <div class="relative">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-400">Cross-Border Reach</span>
+            <span class="text-xs font-medium text-slate-400">5 Global Nodes</span>
+          </div>
+          <h2 class="font-display text-2xl font-bold text-white">Global Commercial Network</h2>
+          <p class="text-sm text-slate-300 mt-2 mb-6 leading-relaxed">
+            Connecting international brand manufacturers and authorized suppliers with high-demand consumer markets
+            across five strategic trade corridors.
+          </p>
+
+          <!-- Hub List -->
+          <div class="space-y-3">
+            <div class="p-3.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span
+                  class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-400/30 text-amber-300 font-display font-bold text-xs flex items-center justify-center">UK</span>
+                <div>
+                  <p class="text-sm font-bold text-white">London, United Kingdom</p>
+                  <p class="text-xs text-slate-400">European Brand Sourcing &amp; Trade Desk</p>
+                </div>
+              </div>
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span
+                  class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-400/30 text-amber-300 font-display font-bold text-xs flex items-center justify-center">US</span>
+                <div>
+                  <p class="text-sm font-bold text-white">New York, United States</p>
+                  <p class="text-xs text-slate-400">North America Marketplace Operations</p>
+                </div>
+              </div>
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span
+                  class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-400/30 text-amber-300 font-display font-bold text-xs flex items-center justify-center">AE</span>
+                <div>
+                  <p class="text-sm font-bold text-white">Dubai, United Arab Emirates</p>
+                  <p class="text-xs text-slate-400">MENA Logistics &amp; Duty-Free Hub</p>
+                </div>
+              </div>
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span
+                  class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-400/30 text-amber-300 font-display font-bold text-xs flex items-center justify-center">AU</span>
+                <div>
+                  <p class="text-sm font-bold text-white">Sydney, Australia</p>
+                  <p class="text-xs text-slate-400">APAC Distribution &amp; Retail Node</p>
+                </div>
+              </div>
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span
+                  class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-400/30 text-amber-300 font-display font-bold text-xs flex items-center justify-center">JP</span>
+                <div>
+                  <p class="text-sm font-bold text-white">Tokyo, Japan</p>
+                  <p class="text-xs text-slate-400">J-Beauty &amp; K-Beauty East Asia Corridor</p>
+                </div>
+              </div>
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="relative mt-6 pt-5 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+          <span>Customs &amp; Import Cleared</span>
+          <span class="text-amber-300 font-semibold">Direct Manufacturer Supply</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 4. BRAND PORTFOLIO & TRACK RECORD -->
+    <section id="portfolio" class="space-y-8 print-break-inside-avoid">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-600 block">Proven Track Record</span>
+          <h2 class="font-display text-2xl md:text-3xl font-bold text-slate-900 mt-1">Brand Portfolio &amp; Growth Case
+            Studies</h2>
+        </div>
+        <p class="text-sm text-slate-600 max-w-md">
+          Trusted across both household global FMCG leaders and fast-scaling international beauty disruptors.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+        <!-- Left 6 Cols: Established Global FMCG Brands -->
+        <div
+          class="lg:col-span-6 bg-white rounded-2xl p-8 md:p-10 border border-slate-200/90 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span
+                class="px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">Tier-1
+                FMCG Distribution</span>
+              <span class="text-xs font-semibold text-emerald-600">100% Batch Traceable</span>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-slate-900">Established Global Brands</h3>
+            <p class="text-sm text-slate-600 mt-2 mb-8 leading-relaxed">
+              Managing high-velocity inventory turnover, climate-controlled storage, strict expiry/batch compliance, and
+              disciplined MAP price protection for world-renowned personal care portfolios.
+            </p>
+
+            <!-- 4 Heritage Brand Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div
+                class="card-hover p-5 rounded-xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 flex flex-col justify-between">
+                <div class="flex items-center justify-between mb-3">
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded">Skincare
+                    &amp; Lip Care</span>
+                  <span class="text-xs text-slate-400 font-semibold">FMCG</span>
+                </div>
+                <p class="font-display text-2xl font-bold text-slate-900 tracking-tight">Vaseline</p>
+                <p class="text-xs text-slate-500 mt-1">High-volume core SKU replenishment &amp; seasonal bundle
+                  execution</p>
+              </div>
+
+              <div
+                class="card-hover p-5 rounded-xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 flex flex-col justify-between">
+                <div class="flex items-center justify-between mb-3">
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded">Beauty
+                    &amp; Haircare</span>
+                  <span class="text-xs text-slate-400 font-semibold">Paris</span>
+                </div>
+                <p class="font-display text-2xl font-bold text-slate-900 tracking-tight">L'Oréal</p>
+                <p class="text-xs text-slate-500 mt-1">Premium beauty assortment &amp; verified authentic distribution
+                </p>
+              </div>
+
+              <div
+                class="card-hover p-5 rounded-xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 flex flex-col justify-between">
+                <div class="flex items-center justify-between mb-3">
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded">Personal
+                    Care</span>
+                  <span class="text-xs text-slate-400 font-semibold">Global</span>
+                </div>
+                <p class="font-display text-2xl font-bold text-slate-900 tracking-tight">Dove</p>
+                <p class="text-xs text-slate-500 mt-1">Consistent Buy-Box retention across body &amp; hair nutrition
+                  lines</p>
+              </div>
+
+              <div
+                class="card-hover p-5 rounded-xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 flex flex-col justify-between">
+                <div class="flex items-center justify-between mb-3">
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-wider text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded">Men's
+                    Grooming</span>
+                  <span class="text-xs text-slate-400 font-semibold">Heritage</span>
+                </div>
+                <p class="font-display text-2xl font-bold text-slate-900 tracking-tight">Old Spice</p>
+                <p class="text-xs text-slate-500 mt-1">Cross-border &amp; domestic fragrance and grooming catalog scale
+                </p>
+              </div>
             </div>
           </div>
 
-          <p class="text-[11px] text-zinc-400 mt-4">
-            + Actively onboarding high-potential international personal care & lifestyle brands.
-          </p>
+          <div class="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+            <span>Zero Counterfeit Tolerance Policy</span>
+            <span class="font-semibold text-slate-900">Direct &amp; Authorized Channels</span>
+          </div>
+        </div>
+
+        <!-- Right 6 Cols: Zero-to-Hero Brand Incubation (Top 4 New Brands) -->
+        <div
+          class="lg:col-span-6 bg-gradient-to-br from-[#0B1120] via-[#0F172A] to-[#1E293B] text-white rounded-2xl p-8 md:p-10 border border-slate-800 shadow-xl flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute -top-24 -right-24 w-64 h-64 bg-amber-500/15 rounded-full blur-3xl pointer-events-none">
+          </div>
+
+          <div class="relative">
+            <div class="flex items-center justify-between mb-3">
+              <span
+                class="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
+                Zero-to-Hero Incubation
+              </span>
+              <span class="text-xs font-semibold text-amber-300">Top 4 New Brands</span>
+            </div>
+
+            <h3 class="font-display text-2xl font-bold text-white">New Brand Launch &amp; Category Scale</h3>
+            <p class="text-sm text-slate-300 mt-2 mb-8 leading-relaxed">
+              We take emerging international brands from zero marketplace presence to category leadership through AI
+              keyword indexing, localized A+ storytelling, and precision PPC management.
+            </p>
+
+            <!-- Top 4 New Brands (Zero to Hero) Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Brand 1: Anua -->
+              <div
+                class="card-hover p-5 rounded-xl bg-white/[0.06] border border-white/15 backdrop-blur-sm flex flex-col justify-between">
+                <div class="flex items-center justify-between mb-3">
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-wider text-emerald-300 bg-emerald-500/20 border border-emerald-400/30 px-2.5 py-0.5 rounded">Zero
+                    to Hero #1</span>
+                  <span class="text-xs text-slate-400 font-semibold">K-Beauty</span>
+                </div>
+                <p class="font-display text-2xl font-bold text-white tracking-tight">Anua</p>
+                <p class="text-xs text-slate-300 mt-1">Scaled from initial catalog onboarding to top-tier skincare
+                  category velocity</p>
+              </div>
+
+              <!-- Brand 2: Isntree -->
+              <div
+                class="card-hover p-5 rounded-xl bg-white/[0.06] border border-white/15 backdrop-blur-sm flex flex-col justify-between">
+                <div class="flex items-center justify-between mb-3">
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-wider text-amber-300 bg-amber-500/20 border border-amber-400/30 px-2.5 py-0.5 rounded">Zero
+                    to Hero #2</span>
+                  <span class="text-xs text-slate-400 font-semibold">Clean Beauty</span>
+                </div>
+                <p class="font-display text-2xl font-bold text-white tracking-tight">Isntree</p>
+                <p class="text-xs text-slate-300 mt-1">Rapid organic rank dominance across hyaluronic &amp; daily sun
+                  care lines</p>
+              </div>
+
+              <!-- Brand 3: Biodance -->
+              <div
+                class="card-hover p-5 rounded-xl bg-white/[0.06] border border-white/15 backdrop-blur-sm flex flex-col justify-between">
+                <div class="flex items-center justify-between mb-3">
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-wider text-sky-300 bg-sky-500/20 border border-sky-400/30 px-2.5 py-0.5 rounded">Zero
+                    to Hero #3</span>
+                  <span class="text-xs text-slate-400 font-semibold">Bio-Skincare</span>
+                </div>
+                <p class="font-display text-2xl font-bold text-white tracking-tight">Biodance</p>
+                <p class="text-xs text-slate-300 mt-1">High-converting launch execution &amp; hero collagen mask demand
+                  capture</p>
+              </div>
+
+              <!-- Brand 4: Some By MI -->
+              <div
+                class="card-hover p-5 rounded-xl bg-white/[0.06] border border-white/15 backdrop-blur-sm flex flex-col justify-between">
+                <div class="flex items-center justify-between mb-3">
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-wider text-purple-300 bg-purple-500/20 border border-purple-400/30 px-2.5 py-0.5 rounded">Zero
+                    to Hero #4</span>
+                  <span class="text-xs text-slate-400 font-semibold">Derma Care</span>
+                </div>
+                <p class="font-display text-2xl font-bold text-white tracking-tight">Some By MI</p>
+                <p class="text-xs text-slate-300 mt-1">Full-funnel marketplace scaling with AI SEO &amp; targeted PPC
+                  velocity</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="relative mt-8 pt-5 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
+            <span>Actively onboarding global beauty &amp; personal care brands</span>
+            <span class="text-amber-400 font-bold">Ready for PO Execution</span>
+          </div>
         </div>
 
       </div>
     </section>
 
-    <!-- 5. Contact & Partnership Footer -->
-    <footer class="card-surface bg-zinc-900 text-white p-8 md:p-10 rounded-xl print-break-inside-avoid">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+    <!-- 5. END-TO-END OPERATIONAL CAPABILITIES -->
+    <section id="capabilities" class="space-y-8 print-break-inside-avoid">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-widest text-zinc-400">Partner With Us</p>
-          <h2 class="text-xl md:text-2xl font-semibold mt-1">Ready to scale your brand across Amazon & Flipkart?</h2>
-          <p class="text-xs text-zinc-400 mt-2 max-w-xl">
-            Connect with our procurement and brand management desk to discuss authorized distribution, exclusive launch partnerships, and opening purchase orders.
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-600 block">Why Global Brands Partner With
+            Us</span>
+          <h2 class="font-display text-2xl md:text-3xl font-bold text-slate-900 mt-1">End-to-End Distribution &amp;
+            Channel Capabilities</h2>
+        </div>
+        <p class="text-sm text-slate-600 max-w-md">
+          Full-stack operational infrastructure designed to protect brand equity while maximizing GMV velocity.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="bg-white p-6 rounded-xl border border-slate-200/90 shadow-sm">
+          <div
+            class="w-9 h-9 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 font-bold text-xs flex items-center justify-center mb-4">
+            01</div>
+          <h3 class="font-display font-bold text-slate-900 text-base">Authorized Distribution &amp; PO Scale</h3>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            Direct wholesale procurement with predictable opening purchase orders, transparent sell-through reporting,
+            and disciplined working capital deployment.
           </p>
         </div>
 
-        <div class="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0">
-          <a href="mailto:info@mayecomm.com" class="inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-lg bg-white text-zinc-900 text-xs font-semibold hover:bg-zinc-100 transition">
-            <svg class="w-4 h-4 text-zinc-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        <div class="bg-white p-6 rounded-xl border border-slate-200/90 shadow-sm">
+          <div
+            class="w-9 h-9 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 font-bold text-xs flex items-center justify-center mb-4">
+            02</div>
+          <h3 class="font-display font-bold text-slate-900 text-base">AI Catalog &amp; Conversion Optimization</h3>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            Data-backed keyword indexing, high-converting A+ Brand Stories, storefront design, and localized visual
+            merchandising tailored for Amazon &amp; Flipkart algorithms.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200/90 shadow-sm">
+          <div
+            class="w-9 h-9 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 font-bold text-xs flex items-center justify-center mb-4">
+            03</div>
+          <h3 class="font-display font-bold text-slate-900 text-base">MAP &amp; Brand Integrity Protection</h3>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            Strict adherence to Minimum Advertised Price (MAP) policies, active monitoring against unauthorized
+            grey-market sellers, and 100% authentic batch control.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200/90 shadow-sm">
+          <div
+            class="w-9 h-9 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 font-bold text-xs flex items-center justify-center mb-4">
+            04</div>
+          <h3 class="font-display font-bold text-slate-900 text-base">Multi-Node FBA &amp; Smart Fulfillment</h3>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            Regional inventory placement across Amazon FBA and Flipkart Assured fulfillment centers for next-day Prime
+            delivery badges and maximum conversion.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200/90 shadow-sm">
+          <div
+            class="w-9 h-9 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 font-bold text-xs flex items-center justify-center mb-4">
+            05</div>
+          <h3 class="font-display font-bold text-slate-900 text-base">Performance Media &amp; Sponsored Ads</h3>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            Full-funnel Sponsored Products, Sponsored Brands, and DSP campaign management focused on sustainable TACoS
+            and organic rank dominance.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200/90 shadow-sm">
+          <div
+            class="w-9 h-9 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 font-bold text-xs flex items-center justify-center mb-4">
+            06</div>
+          <h3 class="font-display font-bold text-slate-900 text-base">Cross-Border Regulatory &amp; Customs</h3>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+            Seamless international freight forwarding, customs clearance, statutory labeling, and local regulatory
+            compliance across all 5 global commercial hubs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. EXECUTIVE PARTNERSHIP & PROCUREMENT FOOTER -->
+    <footer id="contact"
+      class="bg-[#060A12] text-white rounded-3xl p-8 sm:p-12 lg:p-14 border border-slate-800 shadow-2xl relative overflow-hidden print-break-inside-avoid">
+      <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+      <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none">
+      </div>
+
+      <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-widest">
+            <span>Brand Partnerships &amp; Procurement Desk</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white leading-tight">
+            Ready to accelerate your brand across Amazon, Flipkart &amp; global markets?
+          </h2>
+          <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+            Connect directly with our brand management and procurement leadership to discuss authorized distribution
+            agreements, exclusive marketplace launches, and opening purchase orders.
+          </p>
+        </div>
+
+        <div class="lg:col-span-5 flex flex-col gap-4">
+          <a href="mailto:info@mayecomm.com"
+            class="flex items-center justify-between p-5 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 font-bold hover:brightness-105 transition shadow-xl shadow-amber-500/20">
+            <div class="flex items-center gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-slate-950/15 flex items-center justify-center">
+                <svg class="w-5 h-5 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                  </path>
+                </svg>
+              </div>
+              <div>
+                <span class="text-xs uppercase tracking-wider text-slate-900/80 block font-semibold">Corporate
+                  Procurement Email</span>
+                <span class="text-base sm:text-lg font-display font-bold">info@mayecomm.com</span>
+              </div>
+            </div>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
-            info@mayecomm.com
           </a>
-          <a href="tel:+919819568545" class="inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-lg bg-zinc-800 text-zinc-100 border border-zinc-700 text-xs font-medium hover:bg-zinc-700 transition">
-            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-            </svg>
-            +91 9819568545
+
+          <a href="tel:+919819568545"
+            class="flex items-center justify-between p-5 rounded-2xl bg-white/[0.06] hover:bg-white/[0.1] border border-white/15 text-white transition">
+            <div class="flex items-center gap-3.5">
+              <div
+                class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-400/30 flex items-center justify-center text-amber-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                  </path>
+                </svg>
+              </div>
+              <div>
+                <span class="text-xs uppercase tracking-wider text-slate-400 block font-semibold">Direct Executive
+                  Line</span>
+                <span class="text-base sm:text-lg font-display font-bold">+91 9819568545</span>
+              </div>
+            </div>
+            <span
+              class="text-xs font-semibold text-amber-400 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-400/20">Call
+              / WhatsApp</span>
           </a>
         </div>
       </div>
 
-      <div class="mt-8 pt-6 border-t border-zinc-800 flex flex-col sm:flex-row items-start sm:items-center justify-between text-[11px] text-zinc-400 gap-2">
-        <span>© May Integrated Services LLP. All rights reserved.</span>
-        <span>London • New York • Dubai • Sydney • Tokyo</span>
+      <div
+        class="relative mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-slate-400 gap-4">
+        <div class="flex items-center gap-3">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <span class="font-semibold text-white">© May Integrated Services LLP.</span>
+          <span>All Rights Reserved.</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 text-slate-400 font-medium">
+          <span>London</span>
+          <span class="text-slate-600">•</span>
+          <span>New York</span>
+          <span class="text-slate-600">•</span>
+          <span>Dubai</span>
+          <span class="text-slate-600">•</span>
+          <span>Sydney</span>
+          <span class="text-slate-600">•</span>
+          <span>Tokyo</span>
+        </div>
       </div>
     </footer>
 
   </main>
 
 </body>
+
 </html>
